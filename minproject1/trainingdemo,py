@@ -1,0 +1,17 @@
+import cv2
+import numpy as np
+from PIL import Image
+import os
+path="datasets"
+
+def getImageId(path):
+  ImagePath = [ os.path.join(path,f) for f in os.listdir(path)]
+  faces=[]
+  ids=[]
+  for imagePaths in ImagePath:
+    faceImage=Image.open(imagePaths).convert('L')
+    faceNP=np.array(faceImage)
+    Id=(os.path.split(imagePaths)[-1].split("." [1]))
+  return Id    
+
+print(getImageId(path))
